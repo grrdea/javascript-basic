@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<meta name="author" content="Gerard Guix">
+<title>JAVASCRIPT Exercicis Bàsics</title>
+<head>
+<!--STYLES-->
+<style>
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.btn {
+    font-size: 1.5rem;
+    font-weight: bold;    
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color:#31332F;
+    color: white;
+}
+.ex{
+    color: blue;
+}
+#cal {
+    background-color: #F0DD3D; 
+    font-size: 1.5rem;
+    padding:2rem 0; 
+    box-sizing:margin-box; 
+    max-width:400px; 
+    margin: 0 auto 2rem;
+    border:10px solid white;
+}
+#cal input {
+    border:1px solid #31332F;
+    font-size: 1.5rem;
+}
+.line{
+    background-color:#31332F;
+    height: 2px;
+    margin: 2rem 0;
+}
+select {
+    background-color:#31332F;
+    color: white;
+    font-size: 1rem;
+}
+
+</style>
+<!--JAVAScript-->
+<script>
+    // Exercici 1
+    console.log('Hola mundo');
+</script>
+
+<script>
+    // Exercici 2
+    window.alert('Me llamo Gerard!');
+</script>
+
+<script>
+    // Exercici 3
+    var name = "Gerard";
+    var lastName  = "Guix";
+    var fullName = name + " " +lastName;
+    // concatenat de variables
+    console.log(name + " " + lastName);
+    // variable amb la suma
+    console.log(fullName);
+</script>
+
+<script>
+    // Exercici 4
+    /*var x = 34; 
+    var y = 58; 
+    var z = x + y;*/
+    var x = 34, y = 58, z = x + y;
+    console.log("La suma de " + x + " y " + y + " es igual a " + z);
+</script>
+
+<script>
+    // Exercici 5
+    var nota_examen = Math.random() * 11;
+    console.log (nota_examen);
+    if (nota_examen >= 5) {
+        window.alert("Bravo campió! Has aprovat l'exàmen amb un " + nota_examen.toFixed(1) + "!");
+    } else { 
+        window.alert("Ups, mala sort.. Has suspès l'exàmen :( amb un " + nota_examen.toFixed(1));
+    };
+</script>
+
+<script>
+    // Exercici 6
+    var frase = "Tinc un cotxe de color blau";
+    var paraula = frase.replace(/blau/g, "verd");
+    var lletra = frase.replace(/o/g, "u");
+    console.log (paraula + ". \n" +lletra);
+</script>
+
+<script>
+    // Exercici 7
+    var llista =["taula", "cadira", "ordinador", "llibreta"];
+    var i;
+    for (i = 0; i < llista.length; i++) {
+        console.log("L'objecte " + llista[i] + " es troba a la posició " + i);
+    };
+
+</script>
+
+<script>
+    // Exercici 8
+    var valor1, valor2, operador, resultat;
+    function calculadora() {
+        valor1 = document.getElementById("v1").value;
+        valor2 = document.getElementById("v2").value; 
+        operador = document.querySelector("option[name='operator']:checked").value;
+        
+        if (operador == "suma") { 
+            resultat = Number(valor1)+Number(valor2);
+        } else if (operador == "resta") { 
+            resultat = valor1-valor2;
+        } else if (operador=="multiplica") {
+            resultat = valor1*valor2;
+        } else if (operador == "divideix") {
+            resultat = valor1/valor2;
+        } else {
+            resultat = "Falta l'operador!";
+            alert (valor1 + " " + operador + " " + valor2 + " és una operació no vàlida");
+        }
+        
+        console.log(valor1,operador,valor2,resultat);
+        return document.getElementById("result").innerHTML = resultat;
+    };
+</script>
+
+
+</head>
+
+<body style="background-color:#F0DD3D;">
+<h1>JAVASCRIPT Exercicis Bàsics</h1>
+<img src="https://cms-assets.tutsplus.com/uploads/users/71/courses/1261/preview_image/practice-javascript-and-learn-functions-400x277.png">
+<div class="line"></div>
+<p><span class="ex">Exercicis 1-7: </span><b>Check out console!</b>
+</p>
+<div class="line"></div>
+<p><span class="ex">Exercici 8: </span><b>CALCULATOR</b></p>
+<!--<p><span id="v1">Num1</span> <span id="op">&</span> <span id="v2">Num2</span> = <span id="result"></span></p>-->
+
+<div id="cal">
+    <input type="text" id="v1" size="5" style="padding: 0.5rem; margin-bottom:1rem;" name="v1">
+    <select style="margin: 1rem;">
+        <option  name="operator" value="suma">+ SUMA</option>
+        <option  name="operator" value="resta">- RESTA</option>
+        <option  name="operator" value="multiplica">* MULTI</option>
+        <option  name="operator" value="divideix">/ DIVIDE</option>
+    </select>
+    <input type="text" id="v2" size="5" style="padding:0.5rem;" name="v2"><br>
+    <button onclick="calculadora()" class="btn">=</button>
+    <span id="result" style="margin-left: 1rem;"></span>
+</div>
+
+</body>
+</html>
